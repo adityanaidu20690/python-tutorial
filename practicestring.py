@@ -1,0 +1,21 @@
+# string operation
+name= input("enter your full name: ")
+phone_number=input("enter your contact number: ")
+cno=phone_number.count("-")
+cn1=phone_number.replace("-" , "%")
+print(cno)
+print(cn1)
+space=name.find("a")
+space1=name.capitalize()
+space2=name.upper()
+space3=name.lower()
+space4=name.isdigit()
+space5=name.isalpha()
+
+print(space2)
+print(space1)
+print(space3)
+print(space4)
+print(space5)
+
+print(len(name))
