@@ -3,30 +3,33 @@ import csv
 
 # Connect to the MySQL database
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="root",
-  database="mydatabase"
+  host="localhost",        # Host where the MySQL server is running
+  user="root",             # MySQL username
+  password="root",         # MySQL password
+  database="mydatabase"    # Database to connect to
 )
 
+# Create a cursor object to interact with the database
 mycursor = mydb.cursor()
 
-# Execute the query to fetch all data from the 'customers' table
+# Execute the SQL query to fetch all data from the 'customers' table
 mycursor.execute("SELECT * FROM customers")
 
-# Fetch all rows of data
+# Fetch all rows of data from the query result
 myresult = mycursor.fetchall()
 
-# Open the CSV file for writing
+# Open the output CSV file in write mode
 with open("aditya.csv", "w", newline="") as output:
-    # Create a CSV writer object
+    # Create a CSV writer object to write data to the file
     data = csv.writer(output)
 
-    # Write the column headers (column names from the query)
-    data.writerow(["Name", "Address"])  # Column headers are manually specified
+    # Write the column headers (the names of the columns)
+    # These headers are manually specified in this case
+    data.writerow(["Name", "Address"])
 
-    # Write each row of data from the result set to the CSV file
+    # Write each row of data (from the query result) into the CSV file
     for row in myresult:
         data.writerow(row)
 
+# Print a message confirming that the data has been exported
 print("Data has been exported to aditya.csv")
