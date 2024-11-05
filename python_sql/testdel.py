@@ -1,3 +1,4 @@
+#deleting the db using py
 import mysql.connector
 
 # Connect to MySQL server (without specifying a database)
