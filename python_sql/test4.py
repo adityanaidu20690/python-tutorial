@@ -48,30 +48,31 @@
 #   print(x)
 import mysql.connector
 
-# Connect to MySQL server (not specifying the database initially)
+# Connect to MySQL server (without specifying a database initially)
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="root"
+  host="localhost",  # Host where the MySQL server is running
+  user="root",       # MySQL username (root in this case)
+  password="root"    # MySQL password (replace with actual password)
 )
 
+# Create a cursor object to interact with the database
 mycursor = mydb.cursor()
 
-# Create the database if it does not exist
+# Create the 'mydatabase' if it does not already exist
 mycursor.execute("CREATE DATABASE IF NOT EXISTS mydatabase")
 
-# Switch to the created database
+# Switch to the 'mydatabase' to work on it
 mycursor.execute("USE mydatabase")
 
-# Create the 'customers' table if it doesn't already exist
+# Create the 'customers' table if it does not already exist
 mycursor.execute("""
     CREATE TABLE IF NOT EXISTS customers (
-        name VARCHAR(255),
-        address VARCHAR(255)
+        name VARCHAR(255),   # Column for storing names of customers
+        address VARCHAR(255) # Column for storing address of customers
     )
 """)
 
-# Insert multiple rows into the 'customers' table
+# Insert multiple records into the 'customers' table
 quer = "INSERT INTO customers (name, address) VALUES (%s, %s)"
 value = [
     ("Aditya", "Hyd"),
@@ -80,10 +81,10 @@ value = [
     ("srikar", "Hyd")
 ]
 
-# Execute multiple inserts using executemany()
+# Execute multiple insert operations in one go using executemany()
 mycursor.executemany(quer, value)
 
-# Commit the transaction
+# Commit the transaction to the database
 mydb.commit()
 
 # Print the number of records inserted
