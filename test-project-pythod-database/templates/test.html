@@ -12,18 +12,22 @@
 </head>
 
 <style>
-
-body{
- margin:0;
- background-color:#060404;
- font-family: "Comic Sans MS", "Comic Sans";
- background-image: url('21.jpeg');
- background-filter: brightness(40%);
- background-repeat: no-repeat;
- background-attachment: fixed;  
- background-size: cover;
-}
-</style>
+    /* General body styles */
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", "Comic Sans", cursive; /* Added a fallback font */
+      background-image: url('zen.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fill;
+      background-size: 1366px 668px; /* Ensures the background image covers the entire screen */
+      color: red; /* Changes the text color to red */
+    }
+    
+    /* Example for specific heading color */
+    h1, h2, h3, p { 
+      color: red; /* Ensures text like headings and paragraphs also inherit red color */
+    }
+  </style>
 <body>
 
     <!-- Main heading of the page -->
