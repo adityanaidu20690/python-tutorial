@@ -2,7 +2,7 @@ from flask import Flask , render_template
 app = Flask(__name__)
 @app.route ("/")
 def ace():
-    return render_template("index.html")
+    return render_template("test.html")
 
 @app.route ("/bootstrap")
 def addy():
