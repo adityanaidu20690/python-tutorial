@@ -1,5 +1,4 @@
 # python-tutorial
-Creating a Python Tutorial in Collaboration with GSrikarbabu
 
 In this exercise, we will create a web application using Flask and connect it to MySQL Workbench.
 
