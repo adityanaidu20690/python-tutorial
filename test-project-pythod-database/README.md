@@ -10,8 +10,7 @@ Install Python.
 
 Once Python is installed, install the required packages using the following commands:
 
-bash
-Copy code
+
 pip install Flask
 pip install Flask-SQLAlchemy
 pip install mysql-connector-python
@@ -20,6 +19,4 @@ Install MySQL Workbench.
 
 After installing MySQL Workbench, create the database with the following SQL command:
 
-sql
-Copy code
 CREATE DATABASE employee_details;
