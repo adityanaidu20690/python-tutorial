@@ -1,6 +1,7 @@
 # python-tutorial
 
 In this exercise, we will create a web application using Flask and connect it to MySQL Workbench.
+we will fetch the data from the database using frontend.
 
 Prerequisites:
 Install PyCharm.
