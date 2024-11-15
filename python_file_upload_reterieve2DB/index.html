@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload - Step 1</title>
+</head>
+<body>
+    <h1>Enter Your Details</h1>
+
+    <!-- Display Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Form for entering name and Aadhaar number -->
+    <form method="POST" action="/step2">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required><br><br>
+
+        <label for="aadhaar">Aadhaar Number:</label>
+        <input type="text" name="aadhaar" id="aadhaar" pattern="\d{12}" maxlength="12" minlength="12" required 
+               title="Aadhaar Number must be exactly 12 digits."><br><br>
+
+        <button type="submit">Next</button>
+    </form>
+
+    <h1>Retrieve Image</h1>
+
+    <!-- Form for retrieving image by name and Aadhaar number -->
+    <form method="POST" action="/retrieve_image">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required><br><br>
+
+        <label for="aadhaar">Aadhaar Number:</label>
+        <input type="text" name="aadhaar" id="aadhaar" pattern="\d{12}" maxlength="12" minlength="12" required 
+               title="Aadhaar Number must be exactly 12 digits."><br><br>
+
+        <button type="submit">Retrieve Image</button>
+    </form>
+</body>
+</html>

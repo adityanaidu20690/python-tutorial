@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload - Step 1</title>
+    <style>
+        /* Simple CSS layout */
+        body {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        .form-container {
+            width: 45%;  /* Adjust the width of the form container */
+        }
+        .form-container h1 {
+            text-align: center;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-container label {
+            margin: 10px 0;
+        }
+        .form-container input {
+            padding: 8px;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 250px; /* Make the input fields responsive */
+        }
+        .form-container button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        /* Flash message styling */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Enter Your Details</h1>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul>
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Form for entering name and Aadhaar number -->
+        <form method="POST" id="form-step1">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required><br><br>
+
+            <label for="aadhaar">Aadhaar Number:</label>
+            <input type="text" name="aadhaar" id="aadhaar" pattern="\d{12}" maxlength="12" minlength="12" required 
+                   title="Aadhaar Number must be exactly 12 digits."><br><br>
+
+            <button type="submit">Next</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h1>Retrieve and Download Image</h1>
+
+        <!-- Form for retrieving image by name and Aadhaar number -->
+        <form method="POST" id="form-step2">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required><br><br>
+
+            <label for="aadhaar">Aadhaar Number:</label>
+            <input type="text" name="aadhaar" id="aadhaar" pattern="\d{12}" maxlength="12" minlength="12" required 
+                   title="Aadhaar Number must be exactly 12 digits."><br><br>
+
+            <button type="submit">Download Image</button>
+        </form>
+    </div>
+
+    <script>
+        // Dynamically set form actions using JavaScript
+
+        // Set action for the first form
+        document.getElementById('form-step1').action = '/step2';
+
+        // Set action for the second form
+        document.getElementById('form-step2').action = '/download_image';
+    </script>
+</body>
+</html>
