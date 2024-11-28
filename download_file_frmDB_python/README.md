@@ -1,7 +1,18 @@
-Create a Python web application using Flask that allows us to access a local MySQL Workbench database. We will use the classicmodels database with the employees table.
+Project Description:
+This project is a web application developed using Flask, a Python web framework. It allows users to search for employee records from a database, view the results in a tabular format, and download the results as a CSV file. The backend of the application is connected to a MySQL database (classicmodels) containing employee data, and the frontend is built with HTML forms and tables.
 
-In the frontend (index.html), there should be a text field where users can enter a search term, and beside the field, there should be a dropdown menu with the following options: First Name, Last Name, Employee Number, Job Title, and Email.
-
-When the user selects an option from the dropdown (e.g., First Name), enters a search term (e.g., a letter or part of the name), and clicks the search button, the application will query the database and display all the records related to the search term from the selected column.
-
-Once the search results are displayed, the user should have the option to download the data as a .csv file.
+Key Features:
+Search Employees: The application allows users to search for employees based on different fields, such as:
+First Name
+Last Name
+Employee Number
+Job Title
+Email
+Dynamic Results: Once a user performs a search, the application displays the results in a table, including key information about the employees.
+Download Results: Users can download the search results as a CSV file, which includes the employee data in a structured format.
+User-Friendly Interface: The web interface is intuitive, with a search form and result display areas. It also provides a button to download the results as a CSV.
+Technologies Used:
+Flask: For building the web server and routing.
+MySQL: To store and manage the employee data.
+Pandas: For converting the search results into a CSV format.
+HTML: To create the structure of the web pages.
