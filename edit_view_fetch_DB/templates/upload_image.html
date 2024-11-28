@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <!-- Hidden fields to pass name and Aadhaar number to the upload form -->
+        <input type="hidden" name="name" value="{{ name }}">
+        <input type="hidden" name="aadhaar" value="{{ aadhaar }}">
+
+        <label for="file">Choose an image to upload:</label>
+        <input type="file" name="file" id="file" required><br><br>
+
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
