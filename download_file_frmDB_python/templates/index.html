@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Search</title>
+</head>
+<body>
+    <h1>Search Employees</h1>
+    <!-- Search Form -->
+    <form action="/search" method="POST">
+        <input type="text" name="search_value" placeholder="Enter search term" required>
+        <select name="column" required>
+            <option value="firstName">First Name</option>
+            <option value="lastName">Last Name</option>
+            <option value="employeeNumber">Employee Number</option>
+            <option value="jobTitle">Job Title</option>
+            <option value="email">Email</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Results Table -->
+    {% if results %}
+        <h2>Results for "{{ search_value }}" in "{{ selected_column }}"</h2>
+        <table border="1">
+            <tr>
+                <th>Employee Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Job Title</th>
+                <th>Email</th>
+            </tr>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.employeeNumber }}</td>
+                <td>{{ result.firstName }}</td>
+                <td>{{ result.lastName }}</td>
+                <td>{{ result.jobTitle }}</td>
+                <td>{{ result.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <!-- CSV Download Form -->
+        <form action="/download" method="POST">
+            <input type="hidden" name="search_value" value="{{ search_value }}">
+            <input type="hidden" name="column" value="{{ selected_column }}">
+            <button type="submit">Download CSV</button>
+        </form>
+    {% endif %}
+</body>
+</html>
