@@ -24,33 +24,49 @@ def index():
 @app.route('/search', methods=['POST'])
 def search():
     search_value = request.form.get('search_value')
-    selected_column = request.form.get('column')
 
-    # Query the database based on user input
+    # Query the database based on user input (search across multiple columns)
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
 
-    query = f"SELECT * FROM employees WHERE {selected_column} LIKE %s"
-    cursor.execute(query, (f"{search_value}%",))
+    # SQL query to search across multiple string columns
+    query = """
+    SELECT * FROM employees
+    WHERE firstName LIKE %s
+       OR lastName LIKE %s
+       OR jobTitle LIKE %s
+       OR email LIKE %s
+    """
+    
+    # Execute the query with the search_value parameter for all columns
+    cursor.execute(query, (f"%{search_value}%", f"%{search_value}%", f"%{search_value}%", f"%{search_value}%"))
     results = cursor.fetchall()
     cursor.close()
     connection.close()
 
     # Return the results to the user
-    return render_template('index.html', results=results, search_value=search_value, selected_column=selected_column)
+    return render_template('index.html', results=results, search_value=search_value)
 
 # Route to download the search results as CSV
 @app.route('/download', methods=['POST'])
 def download():
     search_value = request.form.get('search_value')
-    selected_column = request.form.get('column')
 
-    # Query the database based on user input
+    # Query the database based on user input (search across multiple columns)
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
 
-    query = f"SELECT * FROM employees WHERE {selected_column} LIKE %s"
-    cursor.execute(query, (f"{search_value}%",))
+    # SQL query to search across multiple string columns
+    query = """
+    SELECT * FROM employees
+    WHERE firstName LIKE %s
+       OR lastName LIKE %s
+       OR jobTitle LIKE %s
+       OR email LIKE %s
+    """
+    
+    # Execute the query with the search_value parameter for all columns
+    cursor.execute(query, (f"%{search_value}%", f"%{search_value}%", f"%{search_value}%", f"%{search_value}%"))
     results = cursor.fetchall()
     cursor.close()
     connection.close()
