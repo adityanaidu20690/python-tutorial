@@ -1,18 +1,17 @@
-Project Description:
-This project is a web application developed using Flask, a Python web framework. It allows users to search for employee records from a database, view the results in a tabular format, and download the results as a CSV file. The backend of the application is connected to a MySQL database (classicmodels) containing employee data, and the frontend is built with HTML forms and tables.
+Project Description: Employee Search and CSV Export Web Application using Flask and MySQL
+This project demonstrates a Python web application using Flask, which allows users to search for employee data in a MySQL database (classicmodels). Users can search across multiple columns of the employees table and view the results directly on the frontend. In addition to the search feature, the application allows the user to download the search results as a CSV file.
 
-Key Features:
-Search Employees: The application allows users to search for employees based on different fields, such as:
-First Name
-Last Name
-Employee Number
-Job Title
-Email
-Dynamic Results: Once a user performs a search, the application displays the results in a table, including key information about the employees.
-Download Results: Users can download the search results as a CSV file, which includes the employee data in a structured format.
-User-Friendly Interface: The web interface is intuitive, with a search form and result display areas. It also provides a button to download the results as a CSV.
 Technologies Used:
-Flask: For building the web server and routing.
-MySQL: To store and manage the employee data.
-Pandas: For converting the search results into a CSV format.
-HTML: To create the structure of the web pages.
+Flask: A micro web framework for Python used to build the web application.
+MySQL: Relational database management system used to store employee data.
+HTML/CSS: Used for building the frontend user interface.
+Pandas: A Python library for data manipulation, used to convert the query results into a CSV file.
+Features:
+Employee Search:
+
+The application allows users to search employees based on several attributes: First Name, Last Name, Job Title, and Email.
+The user types a search term in a text box, and the application fetches the results from the database that match the term across any of the selected columns.
+The results are displayed in a tabular format on the webpage.
+CSV Download:
+
+After searching, the user can download the search results in the form of a CSV file. The CSV file will contain employee details such as Employee Number, First Name, Last Name, Job Title, and Email.
