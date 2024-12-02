@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, send_file
 import mysql.connector
 import pandas as pd
-from io import BytesIO  # Import BytesIO instead of StringIO
+from io import BytesIO
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ def get_db_connection():
     connection = mysql.connector.connect(
         host='localhost',
         user='root',
-        password='root',  # Use your MySQL password here example as root
+        password='root',  # Use your MySQL password here
         database='classicmodels'
     )
     return connection
