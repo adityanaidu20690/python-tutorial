@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User1 Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>User1 Dashboard</h2>
+
+    {% if message %}
+        <p style="color: green;">Message sent to user2: {{ message }}</p>
+    {% endif %}
+
+    <form action="" method="POST">
+        <label for="message">Send message to User2:</label><br>
+        <textarea name="message" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <br>
+    <a href="/">Logout</a>
+</body>
+</html>

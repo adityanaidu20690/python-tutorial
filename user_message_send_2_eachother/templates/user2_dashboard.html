@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User2 Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>User2 Dashboard</h2>
+
+    {% if message %}
+        <p>You have received a message from User1: {{ message }}</p>
+    {% else %}
+        <p>No new messages for you.</p>
+    {% endif %}
+
+    <form action="" method="POST">
+        <label for="message">Send a reply to User1:</label><br>
+        <textarea name="message" required></textarea><br><br>
+        <button type="submit">Send Reply</button>
+    </form>
+
+    <br>
+    <a href="/">Logout</a>
+</body>
+</html>
